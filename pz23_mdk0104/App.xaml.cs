@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Channels;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +32,7 @@ namespace pz23_mdk0104
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.Resuming += OnResuming;
         }
 
         /// <summary>
@@ -37,7 +40,7 @@ namespace pz23_mdk0104
         /// например, если приложение запускается для открытия конкретного файла.
         /// </summary>
         /// <param name="e">Сведения о запросе и обработке запуска.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -70,6 +73,8 @@ namespace pz23_mdk0104
                 }
                 // Обеспечение активности текущего окна
                 Window.Current.Activate();
+                var dialog = new MessageDialog("Приложение активировано");
+                await dialog.ShowAsync();
             }
         }
 
@@ -90,11 +95,19 @@ namespace pz23_mdk0104
         /// </summary>
         /// <param name="sender">Источник запроса приостановки.</param>
         /// <param name="e">Сведения о запросе приостановки.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Сохранить состояние приложения и остановить все фоновые операции
+            var dialog = new MessageDialog("Приложение приостановленно");
+            await dialog.ShowAsync(); ;
             deferral.Complete();
+        }
+
+        private async void OnResuming(object sender, object e)
+        {
+            var dialog = new MessageDialog("Приложение повторно активировано");
+            await dialog.ShowAsync();
         }
     }
 }

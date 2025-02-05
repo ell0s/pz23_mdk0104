@@ -30,6 +30,7 @@ namespace pz23_mdk0104
             this.InitializeComponent();
         }
 
+
         private void goBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigateToUrl(addressBar.Text);
