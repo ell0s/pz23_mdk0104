@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="pz23_mdk0104.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:pz23_mdk0104"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Spacing="5">
+            <TextBox x:Name="addressBar" Width="400" PlaceholderText="Введите URL..." KeyDown="addressBar_KeyDown"/>
+            <Button Content="Перейти" Click="goBtn_Click" Background="{StaticResource buttonBrush}"/>
+            <Button Content="Добавить в закладки" Click="addBtn_Click" Background="{StaticResource bookmarksBrush}"/>
+
+            <DropDownButton Content="Закладки" Background="{StaticResource textBrush}">
+                <DropDownButton.Flyout>
+                    <MenuFlyout x:Name="bookmarksFlyout" />
+                </DropDownButton.Flyout>
+            </DropDownButton>
+        </StackPanel>
+
+        <WebView x:Name="webView" Grid.Row="1" />
+    </Grid>
+</Page>

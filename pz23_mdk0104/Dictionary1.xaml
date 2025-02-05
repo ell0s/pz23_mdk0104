@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:pz23_mdk0104">
+
+    <LinearGradientBrush x:Key="buttonBrush">
+        <GradientStopCollection>
+            <GradientStop Color="White" Offset="0" />
+            <GradientStop Color="Gray" Offset="1" />
+        </GradientStopCollection>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="bookmarksBrush">
+        <GradientStopCollection>
+            <GradientStop Color="White" Offset="1" />
+            <GradientStop Color="Gray" Offset="0" />
+        </GradientStopCollection>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="textBrush">
+        <GradientStopCollection>
+            <GradientStop Color="Gray" Offset="1" />
+            <GradientStop Color="Gray" Offset="1" />
+        </GradientStopCollection>
+    </LinearGradientBrush>
+</ResourceDictionary>
